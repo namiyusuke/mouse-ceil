@@ -3,11 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title></title>
+    <title>Metaball Shader Demo</title>
   </head>
   <body>
+    <div id="info">METABALL · THREE.JS</div>
     <div id="CanvasContainer">
       <canvas></canvas>
+    </div>
+    <div id="ui">
+      <label>BUBBLES</label>
+      <input type="range" id="sliderCount" min="5" max="110" value="60" />
+      <span id="valCount">60</span>
+      <label>MERGE</label>
+      <input type="range" id="sliderThresh" min="5" max="80" value="35" />
+      <span id="valThresh">3.5</span>
     </div>
     <script type="module" src="./src/js/main.js"></script>
   </body>

@@ -80,6 +80,7 @@ export default class Typography {
     // Pointerの座標をthree.jsのシーン用に変換
     const px = -Config.sceneWidth / 2 + (Pointer.x / window.innerWidth) * Config.sceneWidth
     const py = Config.sceneHeight / 2 - (Pointer.y / window.innerHeight) * Config.sceneHeight
+    console.log(px, py)
     this.tween.update({ x: -px, y: -py }, deltaTime)
 
     this.mesh.material.uniforms.time.value = time

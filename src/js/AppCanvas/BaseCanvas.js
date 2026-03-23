@@ -21,7 +21,7 @@ export default class BaseCanvas {
       depth: false,
       stencil: false,
     })
-    this.renderer.setClearColor(0xffffff)
+    this.renderer.setClearColor(0x0a0a0f)
     this.renderer.setSize(Config.width, Config.height)
     this.renderer.setPixelRatio(Config.dpr)
   }

@@ -1,5 +1,5 @@
 import BaseCanvas from './BaseCanvas'
-import Typography from './Typography'
+import Metaball from './Metaball'
 
 export default class AppCanvas extends BaseCanvas {
   constructor() {
@@ -8,14 +8,10 @@ export default class AppCanvas extends BaseCanvas {
     this.init()
   }
   async init() {
-    // フォントをロード
-    const kaeruFontFace = new FontFace('KaeruKaeru', 'url(./fonts/kaerukaeru-Regular.woff2)')
-    await kaeruFontFace.load()
-    document.fonts.add(kaeruFontFace)
-    // Meshを作成してシーンに追加
-    this.typo = new Typography()
-    await this.typo.init()
-    this.scene.add(this.typo.mesh)
+    // Metaball Meshを作成してシーンに追加
+    this.metaball = new Metaball()
+    await this.metaball.init()
+    this.scene.add(this.metaball.mesh)
     // リサイズをしておいて準備完了
     this.resize()
     this.isReady = true
@@ -24,13 +20,16 @@ export default class AppCanvas extends BaseCanvas {
   resize() {
     this.setConfig()
     this.resizeScene()
+    if (this.metaball) {
+      this.metaball.resize()
+    }
   }
 
   update({ time, deltaTime }) {
     if (!this.isReady) return
 
     // MeshとRendererを更新
-    this.typo.update({ time, deltaTime })
+    this.metaball.update({ time, deltaTime })
     this.renderer.render(this.scene, this.camera)
   }
 }
